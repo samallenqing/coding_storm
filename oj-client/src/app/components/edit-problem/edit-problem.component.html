@@ -1,0 +1,11 @@
+<div class="container" *ngFor="let problem of problems">
+  <div class="card">
+    <div class="card-header">
+      <h4><span class="badge">{{ problem.id }}. {{ problem.name }}</span>
+        <button type="submit" class="btn btn-danger pull-right" (click)="deleteProblem(problem)">Delete</button>
+        <button type="submit" class="btn btn-warning pull-right" [routerLink] = "['/modify-problem', problem.id]">Modify</button>
+      </h4>
+    </div>
+  </div>
+</div>
+

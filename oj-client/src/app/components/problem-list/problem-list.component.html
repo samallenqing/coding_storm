@@ -1,0 +1,21 @@
+<div class="container" [attr.id]="'accordion_' + i" *ngFor="let problem of problems; let i = index;">
+  <div class="card">
+    <div class="card-header" data-toggle="collapse" [attr.data-parent]="'#accordion_' + i"
+         [attr.href]="'#collapseOne_' + i">
+      <h4><span class="badge">{{ problem.id }}. {{ problem.name }} </span>
+        <span class="pull-right badge badge-pill badge-success" *ngIf="problem.difficulty === 'Easy'">{{problem.difficulty}}</span>
+        <span class="pull-right badge badge-pill badge-warning" *ngIf="problem.difficulty === 'Medium'">{{problem.difficulty}}</span>
+        <span class="pull-right badge badge-pill badge-danger" *ngIf="problem.difficulty === 'Hard'">{{problem.difficulty}}</span>
+        <span class="pull-right badge badge-pill badge-dark" *ngIf="problem.difficulty === 'Super'">{{problem.difficulty}}</span>
+      </h4>
+    </div>
+    <div [attr.id]="'collapseOne_' + i" class="collapse">
+      <div class="card-body">
+        <a [routerLink] = "['/problems', problem.id]">
+          <pre>{{ problem.desc}}</pre>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
